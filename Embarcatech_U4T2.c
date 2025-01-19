@@ -18,7 +18,6 @@
 void inicializar_UART();
 void inicializar_perifericos();
 void ligar_LED(uint LED_gpio);
-void ligar_todos_LEDs();
 void desligar_LEDs();
 void acionar_buzzer();
 void reboot();
@@ -35,8 +34,8 @@ int main() {
 
     while (true) {
         // Aguarda comando via UART
-        if (uart_is_readable(UART_ID)) {
-            char comando = uart_getc(UART_ID);
+            char comando = getchar();
+            printf("O comando é: %c",comando);
             switch (comando) {
                 case 'G':
                     ligar_LED(LED_G);
@@ -51,7 +50,9 @@ int main() {
                     printf("LED vermelho ligado\n");
                     break;
                 case 'W':
-                    ligar_todos_LEDs();
+                    gpio_put(LED_G, 1);
+                    gpio_put(LED_B, 1);
+                    gpio_put(LED_R, 1);
                     printf("Todos os LEDs ligados\n");
                     break;
                 case 'O':
@@ -68,17 +69,16 @@ int main() {
                 default:
                     printf("Comando invalido\n");
                     break;
-            }
         }
     }
     return 0;
 }
 
-
 void inicializar_UART(){
-    
+    uart_init(UART_ID, BAUD_RATE);
+    gpio_set_function(UART_TX_PIN, GPIO_FUNC_UART);
+    gpio_set_function(UART_RX_PIN, GPIO_FUNC_UART);
 }
-
 
 void inicializar_perifericos() {
     // Inicializa LEDs
@@ -100,27 +100,24 @@ void inicializar_perifericos() {
     gpio_put(BUZZER, 0);
 }
 
-
 void ligar_LED(uint LED_gpio) {
-    
+    desligar_LEDs();
+    gpio_put(LED_gpio, 1);
 }
-
-
-void ligar_todos_LEDs() {
-    
-}
-
 
 void desligar_LEDs() {
-    gpio_put(LED_G, 0); // Desliga LED verde
-    gpio_put(LED_B, 0); // Desliga LED azul
-    gpio_put(LED_R, 0); // Desliga LED vermelho
-}
-void acionar_buzzer() {
-    
+    gpio_put(LED_G, 0);
+    gpio_put(LED_B, 0);
+    gpio_put(LED_R, 0);
 }
 
+void acionar_buzzer() {
+    gpio_put(BUZZER, 1);
+    sleep_ms(2000);
+    gpio_put(BUZZER, 0);
+}
 
 void reboot() {
-    
+    printf("Reiniciando o microcontrolador...\n");
+    watchdog_reboot(0, 0, 0);
 }
