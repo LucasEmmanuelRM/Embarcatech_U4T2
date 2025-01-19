@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Lucas/.pico-sdk/sdk/2.1.0/src/rp2_common/hardware_uart
+# Install script for directory: C:/Users/Windows 10/.pico-sdk/sdk/2.1.0/src/rp2_common/hardware_uart
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,6 +34,6 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Users/Lucas/.pico-sdk/toolchain/13_3_Rel1/bin/arm-none-eabi-objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Users/Windows 10/.pico-sdk/toolchain/13_3_Rel1/bin/arm-none-eabi-objdump.exe")
 endif()
 

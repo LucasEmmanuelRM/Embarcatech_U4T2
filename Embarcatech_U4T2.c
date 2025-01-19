@@ -112,10 +112,10 @@ void ligar_todos_LEDs() {
 
 
 void desligar_LEDs() {
-    
+    gpio_put(LED_G, 0); // Desliga LED verde
+    gpio_put(LED_B, 0); // Desliga LED azul
+    gpio_put(LED_R, 0); // Desliga LED vermelho
 }
-
-
 void acionar_buzzer() {
     
 }
