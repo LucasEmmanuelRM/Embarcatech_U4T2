@@ -10,14 +10,23 @@ O programa possui 3 funcionalidades principais: Controle de LEDs, acionamento de
 Ao iniciar o programa, o usuário pode digitar os seguintes comandos:
 
 G - Aciona o LED verde
+
 B - Aciona o LED azul
+
 R - Aciona o LED vermelho
+
 C - Aciona os LEDs verde e azul simultaneamente, gerando a cor ciano
+
 Y - Aciona os LEDs LEDs verde e vermelho simultaneamente, gerando a cor amarela
+
 P - Aciona os LEDs azul e vermelho simultaneamente, gerando a cor magenta
+
 W - Aciona todos os LEDs simultaneamente, gerando a cor branca
+
 O - Desliga todos os LEDs
+
 Z - Aciona o buzzer
+
 X - Dá reboot no sistema
 
 Uma demonstração do funcionamento do programa pode ser vista no vídeo disponível no link a seguir:
