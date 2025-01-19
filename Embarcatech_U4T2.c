@@ -30,6 +30,7 @@ int main() {
 
     printf("Controle de GPIO - BitDogLab\n");
     printf("Comandos:\nG - LED verde\nB - LED azul\nR - LED vermelho\n"
+            "C - LEDs verde e azul\nY - LEDs verde e vermelho\nP - LEDs azul e vermelho\n"
             "W - Todos os LEDs\nO - Desligar LEDs\nZ - Acionar buzzer\nX - Reboot\n");
 
     while (true) {
@@ -39,15 +40,33 @@ int main() {
             switch (comando) {
                 case 'G':
                     ligar_LED(LED_G);
-                    printf("LED verde ligado\n");
+                    printf("LED verde ligado!\n");
                     break;
                 case 'B':
                     ligar_LED(LED_B);
-                    printf("LED azul ligado\n");
+                    printf("LED azul ligado!\n");
                     break;
                 case 'R':
                     ligar_LED(LED_R);
-                    printf("LED vermelho ligado\n");
+                    printf("LED vermelho ligado!\n");
+                    break;
+                case 'C':
+                    desligar_LEDs();
+                    gpio_put(LED_G, 1);
+                    gpio_put(LED_B, 1);
+                    printf("LEDs verde e azul ligados!\n");
+                    break;
+                case 'Y':
+                    desligar_LEDs();
+                    gpio_put(LED_G, 1);
+                    gpio_put(LED_R, 1);
+                    printf("LEDs verde e vermelho ligados!\n");
+                    break;
+                case 'P':
+                    desligar_LEDs();
+                    gpio_put(LED_R, 1);
+                    gpio_put(LED_B, 1);
+                    printf("LEDs azul e vermelho ligados\n");
                     break;
                 case 'W':
                     gpio_put(LED_G, 1);
