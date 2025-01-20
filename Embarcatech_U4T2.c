@@ -62,7 +62,7 @@ int main() {
                     gpio_put(LED_R, 1);
                     printf("LEDs verde e vermelho ligados!\n");
                     break;
-                case 'P':
+                case 'M':
                     desligar_LEDs();
                     gpio_put(LED_R, 1);
                     gpio_put(LED_B, 1);
