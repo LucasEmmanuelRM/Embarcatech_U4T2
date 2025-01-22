@@ -33,3 +33,8 @@ Uma demonstração do funcionamento do programa pode ser vista no vídeo dispon�
 https://drive.google.com/file/d/1PfA_q2JgKqY5tDNJntALoOgheUWq9hYO/view?usp=sharing
 
 As funcionalidades principais, exigidas pela atividade proposta, são demonstradas, constatando seu total funcionamento.
+
+Os integrantes deste projeto são:
+- Gabriel Vicente;
+- Lucas Emmanuel;
+- Nerinho Nascimento.
